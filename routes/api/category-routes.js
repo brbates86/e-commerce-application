@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     include: 
       {
         model: Product,
-        attributes: ['id', 'product_name', 'price','stock', 'category_id'],
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
       }
       })
 
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 
     })
     // be sure to include its associated Products
-    //.then(dbCatData => res.json(dbCatData))
+    .then(dbCatData => res.json(dbCatData))
     .catch(err => {
          console.log(err);
          res.status(500).json(err);
@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
             },
             include: {
              model: Product,
-             attributes: ['id', 'product_name', 'price','stock', 'category_id']
+             attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
             }
                 })
                 .then(dbCatData => {

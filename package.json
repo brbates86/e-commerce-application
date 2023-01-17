@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "node seeds/index && npm run watch",
     "watch": "nodemon server.js",
     "seed": "node seeds/index.js"
   },
@@ -13,17 +13,21 @@
     "type": "git",
     "url": "git+https://github.com/brbates86/e-commerce-application.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
   "bugs": {
     "url": "https://github.com/brbates86/e-commerce-application/issues"
   },
   "homepage": "https://github.com/brbates86/e-commerce-application#readme",
   "dependencies": {
-    "dotenv": "^16.0.3",
+    "dotenv": "^8.6.0",
     "express": "^4.17.1",
-    "mysql2": "^3.0.1",
-    "nodemon": "^2.0.20",
-    "sequelize": "^6.28.0"
+    "mysql2": "^2.3.3",
+    "node": "^19.4.0",
+    "sequelize": "^5.22.5"
   }
 }
