@@ -9,11 +9,11 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: Category,
-                attributes: ['category_name']
+                attributes: ['id', 'category_name']
             },
             {
                 model: Tag,
-                attributes: ['tag_name']
+                attributes: ['id', 'tag_name']
             }
         ]
     })
@@ -34,11 +34,11 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Category,
-                attributes: ['category_name']
+                attributes: ['id', 'category_name']
             },
             {
                 model: Tag,
-                attributes: ['tag_name']
+                attributes: ['id', 'tag_name']
             }
         ]
     })
@@ -63,7 +63,7 @@ router.post('/', (req, res) => {
         price: req.body.price,
         stock: req.body.stock,
         category_id: req.body.category_id,
-        tagIds: req.body.tagIds
+        tagIds: req.body.tag_id 
     })
     .then((product) => {
         // if there's product tags, we need to create pairings to bulk create in the Product
@@ -93,10 +93,7 @@ router.post('/', (req, res) => {
                 id: req.params.id
             },
         })
-        .then((product) => {
-            // find all associated tags from ProductTag
-            return ProductTag.findAll({ where: { product_id: req.params.id } });
-        })
+        
         .then((productTags) => {
             // get list of current tag_ids
             const productTagIds = productTags.map(({ tag_id }) => tag_id);

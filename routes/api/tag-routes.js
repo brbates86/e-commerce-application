@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   Tag.findAll({
     include: {
       model: Product,
-      attributes: ['product_name', 'price', 'stock', 'category_id']
+      attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
     }
   })
     .then(dbTagData => res.json(dbTagData))
@@ -29,16 +29,25 @@ router.get('/:id', (req, res) => {
       },
       include: {
         model: Product,
-        attributes: ['product_name', 'price','stock', 'category_id']
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
       }
     })
 
-    .then(dbTagData => res.json(dbTagData))
-    .catch(err => {
-       console.log(err);
-       res.status(500).json(err);
-    });
-});
+    
+      .then(dbTagData => {
+        if (!dbTagData) {
+          res.status(404).json({ message: 'No tag found with this id'});
+          return;
+        }
+        res.json(dbTagData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+   
+  
 
 router.post('/', (req, res) => {
   // create a new tag
@@ -94,3 +103,5 @@ router.delete('/:id', (req, res) => {
 
     });
 });
+
+module.exports = router;
