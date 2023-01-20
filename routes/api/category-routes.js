@@ -22,11 +22,11 @@ router.get('/', (req, res) => {
 
     })
     // be sure to include its associated Products
-    .then(dbCategoryData => res.json(dbCategoryData))
-    .catch(err => {
-         console.log(err);
-         res.status(500).json(err);
-     });
+    // .then(dbCategoryData => res.json(dbCategoryData))
+    // .catch(err => {
+    //      console.log(err);
+    //      res.status(500).json(err);
+    //  });
 
     });
 
@@ -113,6 +113,5 @@ router.post('/', (req, res) => {
             res.status(500).json(err);
       });
     });
-    
     
     module.exports = router;
