@@ -3,10 +3,10 @@
 This is a mysql database and application backend for an e-commerce site. Built using MySQL2, Express, Sequelize and dotenv.
 
 # Installation:
-npm init
-npm i mysql2
-npm i sequelize
-npm i dotenv
+npm init\
+npm i mysql2\
+npm i sequelize\
+npm i dotenv\
 
 #Usage:
 mysql -u root -p, pw is password
