@@ -9,11 +9,11 @@ npm i sequelize\
 npm i dotenv\
 
 #Usage:
-mysql -u root -p, pw is password
-source db/schema.sql
-quit
-npm run seed
-npm start
+mysql -u root -p, pw is password\
+source db/schema.sql\
+quit\
+npm run seed\
+npm start\
 
 Video for GET routes: all categories, products and tags
 
