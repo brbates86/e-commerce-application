@@ -6,14 +6,14 @@ This is a mysql database and application backend for an e-commerce site. Built u
 npm init\
 npm i mysql2\
 npm i sequelize\
-npm i dotenv\
+npm i dotenv
 
 #Usage:
 mysql -u root -p, pw is password\
 source db/schema.sql\
 quit\
 npm run seed\
-npm start\
+npm start
 
 Video for GET routes: all categories, products and tags
 
